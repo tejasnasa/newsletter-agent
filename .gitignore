@@ -1,0 +1,16 @@
+# Credentials
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Output artifacts (the newsletter and the simulated email), but keep the folder
+output/*
+!output/.gitkeep
+*.log

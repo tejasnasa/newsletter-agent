@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Newsletter Agent</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark">NA</span>
+      <div>
+        <h1>Newsletter Agent</h1>
+        <p class="sub">plan &rarr; research &rarr; curate &rarr; write &rarr; critique &rarr; review &rarr; send</p>
+      </div>
+    </div>
+    <div class="health" id="health">checking&hellip;</div>
+  </header>
+
+  <main class="layout">
+    <section class="column">
+      <form id="run-form" class="panel">
+        <label class="field">
+          <span class="label">Goal</span>
+          <textarea id="goal" rows="3" spellcheck="false">Create a weekly newsletter on the latest AI agent news and send it to our subscribers.</textarea>
+        </label>
+
+        <fieldset class="field modes">
+          <legend class="label">Mode</legend>
+          <label class="radio">
+            <input type="radio" name="mode" value="autonomous" checked>
+            <span><strong>Fully Autonomous</strong><em>runs straight through</em></span>
+          </label>
+          <label class="radio">
+            <input type="radio" name="mode" value="hitl">
+            <span><strong>Human-in-the-Loop</strong><em>pauses for your approval</em></span>
+          </label>
+        </fieldset>
+
+        <button type="submit" id="run-button">Run agent</button>
+        <p class="status" id="status">idle</p>
+      </form>
+
+      <section class="panel grow">
+        <h2 class="panel-title">Progress log</h2>
+        <ol class="log" id="log"></ol>
+      </section>
+    </section>
+
+    <section class="column">
+      <section class="panel hidden" id="review-panel">
+        <h2 class="panel-title">Review required</h2>
+        <div class="critique" id="critique"></div>
+        <div class="items" id="review-items"></div>
+        <label class="field">
+          <span class="label">Feedback for the agent</span>
+          <textarea id="feedback" rows="3" placeholder="Optional: tell the agent what to change."></textarea>
+        </label>
+        <div class="actions">
+          <button id="approve-button" type="button" class="primary">Approve &amp; send</button>
+          <button id="revise-button" type="button" class="secondary">Request changes</button>
+        </div>
+      </section>
+
+      <section class="panel hidden" id="result-panel">
+        <h2 class="panel-title">Result</h2>
+        <div class="meta" id="result-meta"></div>
+        <div class="tabs">
+          <button type="button" class="tab active" data-tab="email">Email body</button>
+          <button type="button" class="tab" data-tab="html">HTML preview</button>
+        </div>
+        <pre class="email" id="email-body"></pre>
+        <iframe id="html-preview" class="preview hidden" sandbox="" title="newsletter preview"></iframe>
+      </section>
+
+      <section class="panel empty" id="placeholder">
+        <h2 class="panel-title">Nothing yet</h2>
+        <p>Type a goal, pick a mode, and run the agent. A Human-in-the-Loop run pauses here for your review before the simulated send.</p>
+      </section>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
